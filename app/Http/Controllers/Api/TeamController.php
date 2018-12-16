@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\TeamRequest;
 use App\Http\Resources\TeamPlayersResource;
 use App\Http\Resources\TeamResource;
 use App\Models\Team;
@@ -19,12 +20,10 @@ class TeamController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param TeamRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(TeamRequest $request)
     {
         try{
             $team = Team::create($request->all());

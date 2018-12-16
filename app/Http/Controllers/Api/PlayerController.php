@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\PlayerRequest;
 use App\Http\Resources\PlayerResource;
 use App\Models\Player;
 use App\Models\Team;
@@ -19,15 +20,13 @@ class PlayerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param PlayerRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(PlayerRequest $request)
     {
         try {
-            $team = Team::find($request->team_id);
+            $team = Team::find($request->team['id']);
             $player = $team->players()->create($request->only(['first_name', 'last_name']));
             return response()->json(new PlayerResource($player), 200);
         } catch (\Exception $exception) {
@@ -45,13 +44,11 @@ class PlayerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Player $player
-     * @return \Illuminate\Http\Response
+     * @param PlayerRequest $request
+     * @param Player $player
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Player $player)
+    public function update(PlayerRequest $request, Player $player)
     {
         try {
             $team = Team::find($request->team['id']);

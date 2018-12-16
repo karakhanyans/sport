@@ -17,7 +17,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <select class="select-dropdown" v-model="player.team_id">
+                                <select class="select-dropdown" v-model="player.team.id">
                                     <option value="">-</option>
                                     <option v-for="(team, index) in teams" :value="team.id" :key="team.id">{{ team.name }}</option>
                                 </select>
@@ -45,7 +45,9 @@
                 player: {
                     first_name: '',
                     last_name: '',
-                    team_id: ''
+                    team: {
+                        id: null
+                    }
                 }
             }
         },

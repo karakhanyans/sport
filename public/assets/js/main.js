@@ -248,7 +248,9 @@ __webpack_require__.r(__webpack_exports__);
       player: {
         first_name: '',
         last_name: '',
-        team_id: ''
+        team: {
+          id: null
+        }
       }
     };
   },
@@ -2426,8 +2428,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.player.team_id,
-                          expression: "player.team_id"
+                          value: _vm.player.team.id,
+                          expression: "player.team.id"
                         }
                       ],
                       staticClass: "select-dropdown",
@@ -2442,8 +2444,8 @@ var render = function() {
                               return val
                             })
                           _vm.$set(
-                            _vm.player,
-                            "team_id",
+                            _vm.player.team,
+                            "id",
                             $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
