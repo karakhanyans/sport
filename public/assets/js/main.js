@@ -696,7 +696,7 @@ exports.push([module.i, ".btn {\n  text-decoration: none;\n  color: #fff;\n  bac
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader??ref--5-1!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../assets/css/materialize.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/assets/css/materialize.min.css"), "");
-exports.push([module.i, "@import url(http://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader??ref--5-1!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../assets/css/alpha.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/assets/css/alpha.min.css"), "");
 
 // module

@@ -33,6 +33,6 @@
 
 <style>
     @import "../assets/css/materialize.min.css";
-    @import "http://fonts.googleapis.com/icon?family=Material+Icons";
+    @import "https://fonts.googleapis.com/icon?family=Material+Icons";
     @import "../assets/css/alpha.min.css";
 </style>
