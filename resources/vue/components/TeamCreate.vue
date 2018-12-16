@@ -11,6 +11,9 @@
                 </div>
             </form>
         </div>
+        <div v-if="errors" class="row">
+            <p v-for="error in errors">{{ error[0] }}</p>
+        </div>
     </div>
 </div>
 </template>
@@ -20,6 +23,7 @@
         name: "TeamCreate",
         data(){
             return {
+                errors: [],
                 team:{
                     name:''
                 }
@@ -30,7 +34,7 @@
                 this.$http.post('teams',this.team).then(response => {
                     this.$router.push('/team');
                 },reason => {
-                    alert(reason.message)
+                    this.errors = reason.data.errors;
                 });
             }
         }

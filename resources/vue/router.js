@@ -37,14 +37,15 @@ export default new VueRouter({
             component: Player
         },
         {
-            path: '/player/:id',
-            name:'playerEdit',
-            component: PlayerEdit
-        },
-        {
             path: '/player/create',
             name:'playerCreate',
             component: PlayerCreate
+        },
+        {
+            path: '/player/:id',
+            name:'playerEdit',
+            component: PlayerEdit
         }
+
     ]
 })

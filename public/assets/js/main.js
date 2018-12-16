@@ -240,10 +240,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PlayerCreate",
   data: function data() {
     return {
+      errors: [],
       teams: [],
       player: {
         first_name: '',
@@ -273,7 +278,7 @@ __webpack_require__.r(__webpack_exports__);
           name: 'player'
         });
       }, function (reason) {
-        alert(reason.message);
+        _this2.errors = reason.data.errors;
       });
     }
   }
@@ -331,12 +336,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PlayerEdit",
   data: function data() {
     return {
+      errors: [],
       teams: [],
-      player: {}
+      player: {
+        first_name: '',
+        last_name: '',
+        team: {
+          id: null
+        }
+      }
     };
   },
   created: function created() {
@@ -365,7 +381,8 @@ __webpack_require__.r(__webpack_exports__);
         _this3.$router.push({
           name: 'player'
         });
-      }, function (reason) {// alert(reason.message)
+      }, function (reason) {
+        _this3.errors = reason.data.errors;
       });
     }
   }
@@ -460,10 +477,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TeamCreate",
   data: function data() {
     return {
+      errors: [],
       team: {
         name: ''
       }
@@ -476,7 +497,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$http.post('teams', this.team).then(function (response) {
         _this.$router.push('/team');
       }, function (reason) {
-        alert(reason.message);
+        _this.errors = reason.data.errors;
       });
     }
   }
@@ -717,7 +738,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -2454,7 +2475,9 @@ var render = function() {
                       }
                     },
                     [
-                      _c("option", { attrs: { value: "" } }, [_vm._v("-")]),
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Select Team")
+                      ]),
                       _vm._v(" "),
                       _vm._l(_vm.teams, function(team, index) {
                         return _c(
@@ -2468,6 +2491,17 @@ var render = function() {
                   )
                 ])
               ]),
+              _vm._v(" "),
+              _vm.errors
+                ? _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.errors, function(error) {
+                      return _c("p", [_vm._v(_vm._s(error[0]))])
+                    }),
+                    0
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _vm._m(0)
             ]
@@ -2614,7 +2648,9 @@ var render = function() {
                       }
                     },
                     [
-                      _c("option", { attrs: { value: "" } }, [_vm._v("-")]),
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Select Team")
+                      ]),
                       _vm._v(" "),
                       _vm._l(_vm.teams, function(team, index) {
                         return _c(
@@ -2634,6 +2670,17 @@ var render = function() {
                   )
                 ])
               ]),
+              _vm._v(" "),
+              _vm.errors
+                ? _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.errors, function(error) {
+                      return _c("p", [_vm._v(_vm._s(error[0]))])
+                    }),
+                    0
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _vm._m(0)
             ]
@@ -2813,7 +2860,18 @@ var render = function() {
             _vm._m(0)
           ]
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _vm.errors
+        ? _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.errors, function(error) {
+              return _c("p", [_vm._v(_vm._s(error[0]))])
+            }),
+            0
+          )
+        : _vm._e()
     ])
   ])
 }
@@ -19651,13 +19709,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'player',
     component: _components_Player__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/player/:id',
-    name: 'playerEdit',
-    component: _components_PlayerEdit__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }, {
     path: '/player/create',
     name: 'playerCreate',
     component: _components_PlayerCreate__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }, {
+    path: '/player/:id',
+    name: 'playerEdit',
+    component: _components_PlayerEdit__WEBPACK_IMPORTED_MODULE_6__["default"]
   }]
 }));
 

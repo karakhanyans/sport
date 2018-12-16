@@ -17,11 +17,15 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
+
                                 <select class="select-dropdown" v-model="player.team.id">
-                                    <option value="">-</option>
+                                    <option value="">Select Team</option>
                                     <option v-for="(team, index) in teams" :value="team.id" :key="team.id">{{ team.name }}</option>
                                 </select>
                             </div>
+                        </div>
+                        <div v-if="errors" class="row">
+                            <p v-for="error in errors">{{ error[0] }}</p>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
@@ -41,6 +45,7 @@
         name: "PlayerCreate",
         data() {
             return {
+                errors: [],
                 teams: [],
                 player: {
                     first_name: '',
@@ -64,7 +69,7 @@
                 this.$http.post('players', this.player).then(response => {
                     this.$router.push({name:'player'});
                 },reason => {
-                    alert(reason.message)
+                    this.errors = reason.data.errors;
                 })
             }
         }
