@@ -19649,7 +19649,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_resource__WEBPACK_IMPORTED_MODULE_1__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.http.options.root = 'http://sport.loc/api/';
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.http.options.root = 'https://sport.sergeykarakhanyan.com/api/'; // Vue.http.options.root = 'http://sport.loc/api/';
+
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: _router__WEBPACK_IMPORTED_MODULE_2__["default"],

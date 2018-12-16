@@ -4,7 +4,8 @@ import router from './router'
 import App from './App'
 
 Vue.use(VueResource);
-Vue.http.options.root = 'http://sport.loc/api/';
+Vue.http.options.root = 'https://sport.sergeykarakhanyan.com/api/';
+// Vue.http.options.root = 'http://sport.loc/api/';
 
 new Vue({
     el:'#app',
